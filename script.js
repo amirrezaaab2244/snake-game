@@ -195,3 +195,19 @@ board.addEventListener("touchend", (e) => {
         }
     }
 });
+
+// 🔒 قفل کامل اسکرول صفحه (مخصوص بازی)
+
+function lockScroll() {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+}
+
+// جلوگیری از کشیدن صفحه برای رفرش
+document.addEventListener("touchmove", function (e) {
+    e.preventDefault();
+}, { passive: false });
+
+// اجرا هنگام شروع بازی
+lockScroll();
+
