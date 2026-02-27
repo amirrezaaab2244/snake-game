@@ -1,0 +1,139 @@
+html {
+    --background: #5cc47f;
+    --mainColor: #0400ffd3;
+    --blockSize: 20px;
+    --sctionWidth: 700px;
+    --sctionHeight: 500px;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #181818;
+}
+
+
+#board {
+    width: min(90vw, 700px);
+    height: calc(min(90vw, 700px) * 25 / 35);
+    border: 4px solid black;
+    position: relative;
+    background: #00ff9591;
+}
+
+.snake {
+    position: absolute;
+    width: var(--blockSize);
+    height: var(--blockSize);
+    background: var(--mainColor);
+}
+
+.part1 {
+    left: calc(2 * var(--blockSize));
+    top: calc(1 * var(--blockSize));
+    border-radius: 8px 0px 0px 8px;
+
+}
+
+.part1::after {
+    content: ":";
+    font-size: 17px;
+    color: white;
+  
+}
+
+.part2 {
+    left: calc(3 * var(--blockSize));
+    top: calc(1 * var(--blockSize));
+}
+
+.part3 {
+    left: calc(4 * var(--blockSize));
+    top: calc(1 * var(--blockSize));
+}
+
+.part4 {
+    left: calc(4 * var(--blockSize));
+    top: calc(1 * var(--blockSize));
+}
+
+
+.goal{
+    left: calc(8 * var(--blockSize));
+    top: calc(5 * var(--blockSize));
+    position: absolute;
+    width: var(--blockSize);
+    height: var(--blockSize);
+
+
+}
+
+.goal::after {
+    position: absolute;
+    content: "";
+    background-color: #ff0000;
+    border-radius: 50%/80%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    top: 10%;
+    display: block;
+}
+
+
+.restart-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #008cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.restart-btn:hover {
+    background-color: #006edc;
+   /* transform: scale(1.05);/*
+}
+
+.restart-btn:active {
+    /*transform: scale(0.95);*/
+}
+
+.restart-btn {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls {
+    display: none;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.controls button {
+    font-size: 20px;
+    padding: 10px;
+}
+
+@media (max-width: 900px) {
+
+
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(4, 60px);
+        justify-content: center;
+    }
+
+
+}
