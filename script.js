@@ -161,3 +161,37 @@ document.body.appendChild(restartBtn);
 
 // شروع بازی اول
 startGame();
+// ================= کنترل لمسی (Swipe) =================
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+board.addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+});
+
+board.addEventListener("touchend", (e) => {
+    if (!snake) return;
+
+    const touch = e.changedTouches[0];
+    const diffX = touch.clientX - touchStartX;
+    const diffY = touch.clientY - touchStartY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // حرکت افقی
+        if (diffX > 0) {
+            snake.changeDirection("RIGHT");
+        } else {
+            snake.changeDirection("LEFT");
+        }
+    } else {
+        // حرکت عمودی
+        if (diffY > 0) {
+            snake.changeDirection("DOWN");
+        } else {
+            snake.changeDirection("UP");
+        }
+    }
+});
